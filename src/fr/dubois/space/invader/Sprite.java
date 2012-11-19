@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 
 public abstract class Sprite {
 	
@@ -27,9 +28,10 @@ public abstract class Sprite {
 		return new RectF(x,y,x+bitmap.getWidth()-1,y+bitmap.getHeight()-1); 
 	}
 	
-	public abstract void act();
 
-	
-	
+
+	  public abstract void act();
+
+	  
 
 }
