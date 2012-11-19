@@ -33,7 +33,7 @@ public class SpaceInvaderView extends View {
 	private static final int TARGET_WIDTH = 600;
 
 	private Paint paint; // Style pour le texte	
-	private String text; // texte ├а afficher
+	private String text; // texte ра afficher
 
 
 	public SpaceInvaderView(Context context) {
@@ -62,6 +62,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
+		
 	}
 
 	
@@ -103,7 +104,9 @@ public class SpaceInvaderView extends View {
 		int mode = View.MeasureSpec.getMode(spec);
 		if (mode == View.MeasureSpec.UNSPECIFIED) return def;
 		int size = View.MeasureSpec.getSize(spec);
-		if (mode == View.MeasureSpec.EXACTLY) {
+		if (mode == View.MeasureSpec.EXACTLY) 
+		
+		{
 			return size;
 		}
 		//		MeasureSpec.AT_MOST
