@@ -7,7 +7,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import com.example.android.snake.R;
+
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -61,12 +64,28 @@ public class SpaceInvaderView extends View {
 		text = "Texte";
 	}
 
+	
+    
+	public void loadImage(int key, Drawable tile) {
+		Resources r = this.getContext().getResources();
+		int x = Drawable.tile.getIntrinsicHeight();
+		int y = Drawable.tile.getIntrinsicWidth();
+		Bitmap bitmap = Bitmap.createBitmap(mTileSize, mTileSize, Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		tile.setBounds(0, 0, mTileSize, mTileSize);
+		tile.draw(canvas);
 
+		mTileArray[key] = bitmap; // faire un return 
+	}
 
+	  private void initSpaceInvaderView() {
+	        setFocusable(true);
 
-
-
-
+	        Resources r = this.getContext().getResources();
+	        
+	        resetTiles(4);
+	        loadTile(PERSO, r.getDrawable(R.drawable.perso));
+	  }
 
 	@Override
 	protected void onDraw(Canvas canvas) {
