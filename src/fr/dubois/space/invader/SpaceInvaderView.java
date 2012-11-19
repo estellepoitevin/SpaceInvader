@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import com.example.android.snake.R;
+
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -66,26 +66,27 @@ public class SpaceInvaderView extends View {
 
 	
     
-	public void loadImage(int key, Drawable tile) {
+	public Bitmap loadImage(int key) {
 		Resources r = this.getContext().getResources();
-		int x = Drawable.tile.getIntrinsicHeight();
-		int y = Drawable.tile.getIntrinsicWidth();
-		Bitmap bitmap = Bitmap.createBitmap(mTileSize, mTileSize, Bitmap.Config.ARGB_8888);
+		Drawable drawable= r.getDrawable(key); 
+		int x=drawable.getIntrinsicHeight();
+		int y=drawable.getIntrinsicWidth();
+		Bitmap bitmap = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
-		tile.setBounds(0, 0, mTileSize, mTileSize);
-		tile.draw(canvas);
+		drawable.setBounds(0, 0, x, y);
+		drawable.draw(canvas);
 
-		mTileArray[key] = bitmap; // faire un return 
+		return bitmap;
 	}
 
-	  private void initSpaceInvaderView() {
+/*	  private void initSpaceInvaderView() {
 	        setFocusable(true);
 
 	        Resources r = this.getContext().getResources();
 	        
 	        resetTiles(4);
 	        loadTile(PERSO, r.getDrawable(R.drawable.perso));
-	  }
+	  }*/
 
 	@Override
 	protected void onDraw(Canvas canvas) {
