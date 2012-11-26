@@ -63,7 +63,7 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 
-		Bitmap insecteBitmap=loadImage(R.drawable.kame); 
+		Bitmap insecteBitmap=loadImage(R.drawable.coccinelle); 
 		insecte = new Insecte (insecteBitmap, 0, 0);
 		text = "SpaceInvader";
 
@@ -74,8 +74,8 @@ public class SpaceInvaderView extends View {
 	public Bitmap loadImage(int key) {
 		Resources r = this.getContext().getResources();
 		Drawable drawable= r.getDrawable(key); 
-		int x=drawable.getIntrinsicHeight();
-		int y=drawable.getIntrinsicWidth();
+		int y=drawable.getIntrinsicHeight();
+		int x=drawable.getIntrinsicWidth();
 		Bitmap bitmap = Bitmap.createBitmap(x, y, Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(bitmap);
 		drawable.setBounds(0, 0, x, y);
@@ -98,6 +98,7 @@ public class SpaceInvaderView extends View {
 		super.onDraw(canvas);
 		canvas.drawRGB(0, 0, 0);
 		canvas.drawRect(0, 0, TARGET_WIDTH-1, TARGET_HEIGHT-1, paint);
+		insecte.draw(canvas);
 		if (text != null){
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
