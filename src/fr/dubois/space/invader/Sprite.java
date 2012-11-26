@@ -35,3 +35,21 @@ public abstract class Sprite {
 	  
 
 }
+//Créer une classe Alien héritant de la classe Sprite, en définissant
+//la méthode act (qui est abstraite dans Sprite) et le constructeur. 
+//Les versions créées par défaut par eclipse sont suffisantes pour l’instant.
+
+//Créez un champ de type Alien dans la vue. 
+//Ce champ sera initialisé dans la méthode init()
+
+//Dans la méthode onDraw, demandez à l’alien de s’afficher sur le canevas (canvas).
+
+//Vérifiez l’effet produit en consultant main.xml dans l’éditeur graphique 
+//(Si rien ne s’affiche, essayez de varier les coordonnées. 
+//En cas d’erreur dans l’éditeur graphique, tentez de lancer l’application).
+
+	/*public class Kame extends Sprite{
+		kameView=init();
+		
+	}*/
+	

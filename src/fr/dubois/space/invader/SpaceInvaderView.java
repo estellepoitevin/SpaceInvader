@@ -2,19 +2,11 @@ package fr.dubois.space.invader;
 
 
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
@@ -22,12 +14,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
 public class SpaceInvaderView extends View {
-	
+
 	// Dimensions souhaitÃ©es
 	private static final int TARGET_HEIGHT = 800;
 	private static final int TARGET_WIDTH = 600;
@@ -52,7 +42,7 @@ public class SpaceInvaderView extends View {
 	}
 
 
-	
+
 
 	void init(){
 		paint = new Paint();
@@ -62,10 +52,12 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
+		
+		this.update();
 	}
 
-	
-    
+
+
 	public Bitmap loadImage(int key) {
 		Resources r = this.getContext().getResources();
 		Drawable drawable= r.getDrawable(key); 
@@ -79,11 +71,11 @@ public class SpaceInvaderView extends View {
 		return bitmap;
 	}
 
-/*	  private void initSpaceInvaderView() {
+	/*	  private void initSpaceInvaderView() {
 	        setFocusable(true);
 
 	        Resources r = this.getContext().getResources();
-	        
+
 	        resetTiles(4);
 	        loadTile(PERSO, r.getDrawable(R.drawable.perso));
 	  }*/
@@ -118,4 +110,35 @@ public class SpaceInvaderView extends View {
 		this.setMeasuredDimension(x,y);
 	}
 
+
+
+	// mise en place du compte à rebours | animation des images
+	
+	public void update() {
+		// TODO Auto-generated method stub//
+		// Création de la méthode update pour mettre à jour les positions
+		mRedrawHandler.sleep(40);
+	}
+	
+	private RefreshHandler mRedrawHandler = new RefreshHandler();
+
+	class RefreshHandler extends Handler {
+	
+
+		@Override
+		public void handleMessage(Message msg) {
+			SpaceInvaderView.this.update();
+			SpaceInvaderView.this.invalidate();
+		}
+
+		public void sleep(long delayMillis) {
+			this.removeMessages(0);
+			sendMessageDelayed(obtainMessage(0), delayMillis);
+			
+		}
+	}
+
+	
+
+	
 }
