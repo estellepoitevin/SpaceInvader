@@ -25,12 +25,12 @@ import android.view.View;
 
 public class SpaceInvaderView extends View {
 	
-	// Dimensions souhaitÃ©es
+	// Dimensions souhaitées
 	private static final int TARGET_HEIGHT = 800;
 	private static final int TARGET_WIDTH = 600;
 
 	private Paint paint; // Style pour le texte	
-	private String text; // texte Ã  afficher
+	private String text; // texte à  afficher
 
 
 	public SpaceInvaderView(Context context) {
@@ -58,7 +58,7 @@ public class SpaceInvaderView extends View {
 		paint.setTypeface(Typeface.SANS_SERIF);
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
-		text = "Texte";
+		text = "SpaceInvader";
 	}
 
 
