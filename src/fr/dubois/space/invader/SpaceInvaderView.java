@@ -34,7 +34,7 @@ public class SpaceInvaderView extends View {
 
 	private Paint paint; // Style pour le texte	
 	private String text; // texte à  afficher
-
+	Insecte insecte;
 
 	public SpaceInvaderView(Context context) {
 		super(context);
@@ -62,11 +62,12 @@ public class SpaceInvaderView extends View {
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
 		text = "Texte";
-		
+		Bitmap insecteBitmap=loadImage(R.drawable.kame); 
+		insecte = new Insecte (insecteBitmap, 0, 0);
 	}
 
 	
-    
+    // Création de la méthode loadImage 
 	public Bitmap loadImage(int key) {
 		Resources r = this.getContext().getResources();
 		Drawable drawable= r.getDrawable(key); 
