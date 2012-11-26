@@ -18,13 +18,15 @@ import android.view.View;
 
 public class SpaceInvaderView extends View {
 
-	// Dimensions souhaitÃ©es
+	// Dimensions souhaitées
+
 	private static final int TARGET_HEIGHT = 800;
 	private static final int TARGET_WIDTH = 600;
 
 	private Paint paint; // Style pour le texte	
-	private String text; // texte Ã  afficher
+	private String text; // texte à  afficher
 
+	Insecte insecte;
 
 	public SpaceInvaderView(Context context) {
 		super(context);
@@ -41,9 +43,6 @@ public class SpaceInvaderView extends View {
 		init();
 	}
 
-
-
-
 	void init(){
 		paint = new Paint();
 		paint.setStyle(Style.STROKE);
@@ -51,12 +50,20 @@ public class SpaceInvaderView extends View {
 		paint.setTypeface(Typeface.SANS_SERIF);
 		paint.setTextSize(36);
 		paint.setTextAlign(Paint.Align.CENTER);
+
 		text = "Texte";
 		
 		this.update();
+
+
+		Bitmap insecteBitmap=loadImage(R.drawable.kame); 
+		insecte = new Insecte (insecteBitmap, 0, 0);
+		text = "SpaceInvader";
+
+
 	}
 
-
+    // Création de la méthode loadImage 
 
 	public Bitmap loadImage(int key) {
 		Resources r = this.getContext().getResources();
@@ -95,7 +102,9 @@ public class SpaceInvaderView extends View {
 		int mode = View.MeasureSpec.getMode(spec);
 		if (mode == View.MeasureSpec.UNSPECIFIED) return def;
 		int size = View.MeasureSpec.getSize(spec);
-		if (mode == View.MeasureSpec.EXACTLY) {
+		if (mode == View.MeasureSpec.EXACTLY) 
+		
+		{
 			return size;
 		}
 		//		MeasureSpec.AT_MOST
@@ -118,6 +127,8 @@ public class SpaceInvaderView extends View {
 		// TODO Auto-generated method stub//
 		// Création de la méthode update pour mettre à jour les positions
 		mRedrawHandler.sleep(40);
+		
+		insecte.act();
 	}
 	
 	private RefreshHandler mRedrawHandler = new RefreshHandler();
