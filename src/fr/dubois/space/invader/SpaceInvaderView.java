@@ -53,12 +53,12 @@ public class SpaceInvaderView extends View {
 
 		text = "Texte";
 		
-		this.update();
-
 
 		Bitmap insecteBitmap=loadImage(R.drawable.kame); 
 		insecte = new Insecte (insecteBitmap, 0, 0);
 		text = "SpaceInvader";
+		
+		this.update();
 
 
 	}

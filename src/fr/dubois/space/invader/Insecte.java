@@ -1,4 +1,4 @@
-// Création de la classe Insecte (Alien) 
+// Création de la classe Insecte (insectes) 
 
 package fr.dubois.space.invader;
 
@@ -9,13 +9,16 @@ public class Insecte extends Sprite{
 
 	public Insecte(Bitmap bitmap, float x, float y) {
 		super(bitmap, x, y);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void act() {
-		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void act() { 
+		if(x==0){
+			x=x+10;
+		}
+		if(x==800){
+			x=x-10;
+		}
+	}
 }
