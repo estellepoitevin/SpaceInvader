@@ -27,6 +27,7 @@ public class SpaceInvaderView extends View {
 	private String text; // texte ра afficher
 
 	Insecte insecte;
+	Kame kame;
 
 	public SpaceInvaderView(Context context) {
 		super(context);
@@ -54,8 +55,11 @@ public class SpaceInvaderView extends View {
 		text = "Texte";
 		
 
-		Bitmap insecteBitmap=loadImage(R.drawable.kame); 
+		Bitmap insecteBitmap=loadImage(R.drawable.coccinelle); 
 		insecte = new Insecte (insecteBitmap, 0, 0);
+		
+		Bitmap kameBitmap=loadImage(R.drawable.kame); 
+		kame = new Kame (kameBitmap, 0, 0);
 		text = "SpaceInvader";
 		
 		this.update();
@@ -95,6 +99,8 @@ public class SpaceInvaderView extends View {
 		if (text != null){
 			canvas.drawText(text, canvas.getWidth()/2,canvas.getHeight()/2, paint);
 		}
+		loadImage(R.drawable.coccinelle);
+		loadImage(R.drawable.kame);
 	}
 
 
