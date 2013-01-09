@@ -7,6 +7,10 @@ import android.graphics.Bitmap;
 
 public class Insecte extends Sprite{
 
+	private boolean direction;
+	private boolean directionBas;
+	int compteur;
+
 	public Insecte(Bitmap bitmap, float x, float y) {
 		super(bitmap, x, y);
 		
@@ -14,11 +18,28 @@ public class Insecte extends Sprite{
 
 	@Override
 	public void act() { 
-		if(x==0){
-			x=x+10;
+		if(x>=800){
+			direction=false;
+			
 		}
-		if(x==800){
-			x=x-10;
+		else if(x<=0){
+			direction=true;
+		}
+		if(x>=800 && x<=0){
+			directionBas=true;
+		}
+		
+		
+		if(direction){
+			x=x-2;
+		}
+		else {
+			x=x+2;
+		}
+		//compteur pour y
+		if(directionBas){
+			y=y+2;
+			compteur++;
 		}
 	}
 }
